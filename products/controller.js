@@ -14,7 +14,9 @@ export const getProductos = async (req, res) => {
 
 // Controlador para obtener un producto por ID
 export const getProductoById = async (req, res) => {
+    //obtener el ID del producto desde products/:id
     const { id } = req.params;
+
     try {
         const product = await getProductById(id);
         if (product) {

@@ -20,27 +20,22 @@ export const getAllProducts = async () => {
 // Función para obtener un producto por ID
 export const getProductById = async (id) => {
 
-    throw new Error('Función no implementada');
-
     const docRef = doc(db, 'products', id);
     const snapshot = await getDoc(docRef);
     if (snapshot.exists()) {
         return { id: snapshot.id, ...snapshot.data() };
     }
-    return null;
+    return [];
 };
 
 // Función para agregar un nuevo producto
 export const addProduct = async (productData) => {
-    throw new Error('Función no implementada');
-
     const docRef = await addDoc(productsCollection, productData);
     return { id: docRef.id, ...productData };
 };
 
 // Función para eliminar un producto por ID
 export const deleteProductById = async (id) => {
-    throw new Error('Función no implementada');
 
     const docRef = doc(db, 'products', id);
     await deleteDoc(docRef);
