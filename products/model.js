@@ -4,4 +4,12 @@ export class Product {
         this.name = name;
         this.price = price;
     }
+
+    //metodo a json
+    toJSON() {
+        return {
+            name: this.nombre,
+            price: this.price
+        };
+    }
 }

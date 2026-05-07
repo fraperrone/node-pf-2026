@@ -20,24 +20,27 @@ export const getAllProducts = async () => {
 // Función para obtener un producto por ID
 export const getProductById = async (id) => {
 
-    const docRef = doc(db, 'products', id);
-    const snapshot = await getDoc(docRef);
-    if (snapshot.exists()) {
-        return { id: snapshot.id, ...snapshot.data() };
+    const docRef = db.collection('products').doc(id);
+    const docSnap = await docRef.get();
+    if (docSnap.exists) {
+        return { id: docSnap.id, ...docSnap.data() };
+    } else {
+        return null;
     }
-    return [];
 };
 
 // Función para agregar un nuevo producto
 export const addProduct = async (productData) => {
-    const docRef = await addDoc(productsCollection, productData);
-    return { id: docRef.id, ...productData };
+    console.log("Agregando producto:", productData);
+    const docRef = await db.collection('products').add(productData.toJSON());
+    return { id: docRef.id, ...productData.toJSON() };
 };
 
 // Función para eliminar un producto por ID
 export const deleteProductById = async (id) => {
 
-    const docRef = doc(db, 'products', id);
-    await deleteDoc(docRef);
+    const docRef = db.collection('products').doc(id);
+    await docRef.delete();
     return true;
+   
 };
