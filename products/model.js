@@ -8,7 +8,7 @@ export class Product {
     //metodo a json
     toJSON() {
         return {
-            name: this.nombre,
+            name: this.name,
             price: this.price
         };
     }

@@ -32,7 +32,7 @@ export const getProductoById = async (req, res) => {
 
 // Controlador para crear un nuevo producto
 export const createProducto = async (req, res) => {
-    const {name,price } = req.body;
+    const { name, price } = req.body;
     // usamos model product para crear un nuevo producto
     const product = new Product( name, price );
     if (!name || !price) {
