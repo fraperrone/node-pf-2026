@@ -15,4 +15,9 @@ router.post('/auth/login', (req, res) => {
     }
 });
 
+// agregamos ruta no encontrada
+router.use((req, res) => {
+    res.status(404).json({ error: 'Ruta no encontrada' });
+});
+
 export default router;
