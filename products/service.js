@@ -31,7 +31,7 @@ export const getProductById = async (id) => {
 
 // Función para agregar un nuevo producto
 export const addProduct = async (productData) => {
-    console.log("Agregando producto:", productData);
+    console.log("Agregando producto:", productData.toJSON());
     const docRef = await db.collection('products').add(productData.toJSON());
     return { id: docRef.id, ...productData.toJSON() };
 };
