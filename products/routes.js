@@ -23,9 +23,6 @@ router.post('/products/create', createProducto);
 // Ruta para eliminar un producto
 router.delete('/products/:id', deleteProducto);
 
-// agregamos ruta no encontrada
-router.use((req, res) => {
-    res.status(404).json({ error: 'Ruta no encontrada' });
-});
+
 
 export default router;
