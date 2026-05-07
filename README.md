@@ -32,11 +32,12 @@ El proyecto implementa un backend en Node.js que integra Firebase como base de d
   nombre: String,
   precio: Number
 }
+```
 
-Notas importantes
-La credencial de firebase-admin no será subida al repositorio público.
+## Notas importantes
+- La credencial de firebase-admin no será subida al repositorio público.
 
-El sistema puede verificarse desplegado en Render en la siguiente URL:
+- El sistema puede verificarse desplegado en Render en la siguiente URL:
 
 Code
 https://<tu-app>.onrender.com
