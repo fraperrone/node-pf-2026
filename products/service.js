@@ -41,7 +41,12 @@ export const addProduct = async (productData) => {
 export const deleteProductById = async (id) => {
 
     const docRef = db.collection('products').doc(id);
+    // verificamos si el producto existe antes de eliminarlo
+    const docSnap = await docRef.get();
+    if (!docSnap.exists) {
+        return false; // Producto no encontrado
+    }
     await docRef.delete();
-    return true;
+    return true; // Producto eliminado correctamente   
    
 };
