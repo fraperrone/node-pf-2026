@@ -35,14 +35,11 @@ export const createProducto = async (req, res) => {
     const { name, price } = req.body;
     // usamos model product para crear un nuevo producto
     const product = new Product( name, price );
+    console.log("Producto recibido en el controlador:", product.toJSON());
     if (!name || !price) {
         return res.status(400).json({ error: 'El nombre y el precio son obligatorios' });
     }
-    // Validar que no sean undefined
-    if (name === undefined || price === undefined) {
-        return res.status(400).json({ error: "Campos requeridos faltantes" });
-    }
-
+   
     try {
         const newProduct = await addProduct(product);
         res.status(201).json(newProduct);
