@@ -33,6 +33,7 @@ export const getProductById = async (id) => {
 export const addProduct = async (productData) => {
     console.log("Agregando producto:", productData.toJSON());
     const docRef = await db.collection('products').add(productData.toJSON());
+    console.log("Producto agregado con ID:", docRef.id);
     return { id: docRef.id, ...productData.toJSON() };
 };
 

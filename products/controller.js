@@ -33,6 +33,7 @@ export const getProductoById = async (req, res) => {
 // Controlador para crear un nuevo producto
 export const createProducto = async (req, res) => {
     const { name, price } = req.body;
+    console.log("Datos recibidos para crear producto:", { name, price });
     // usamos model product para crear un nuevo producto
     const product = new Product( name, price );
     console.log("Producto recibido en el controlador:", product.toJSON());
