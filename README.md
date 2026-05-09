@@ -39,4 +39,4 @@ El proyecto implementa un backend en Node.js que integra Firebase como base de d
 
 - El sistema puede verificarse desplegado en Render en la siguiente URL:
 
-https://<tu-app>.onrender.com
+https://node-pf-2026.onrender.com
